@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="bitcoin.png" type="image/x-icon">
+    <title>Personal budget tracker</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        .bgcolor {
+            background: rgb(11, 116, 176);
+            background: linear-gradient(87deg, rgba(11, 116, 176, 1) 0%, rgba(43, 255, 190, 1) 100%);
+        }
+
+        .MS {
+            margin-left: -2px;
+        }
+
+        .libre-baskerville-regular {
+            font-family: "Libre Baskerville", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .btn-cl {
+            background-color: rgb(0, 189, 69);
+            color: white;
+        }
+
+        .bg-image {
+            background-image: url('bg-dashboard.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            height: 100vh;
+            image-rendering: auto;
+            image-rendering: crisp-edges;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body {
+            margin-top: 170px;
+        }
+        
+    </style>
+
+</head>
+
+<body class="bg-image">
+    <div class="container-fluid p-0 bgcolor py-3 shadow fixed-top">
+        <div class="container">
+
+            <div class="d-flex">
+                <div class="col-5">
+                    <div style="width: 50px; height:50px;" class="rounded-circle border border-4 overflow-hidden">
+                        <img class="object-fit-cover h-100 w-100"
+                            src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAMAAzAMBIgACEQEDEQH/xAAcAAACAwEBAQEAAAAAAAAAAAAEBQIDBgcBAAj/xAA+EAACAQMCBAMFBwMCBAcAAAABAgMABBESIQUxQVETImEGMkJxgRQjUpGhscEHYtEzghVD4fFTVGNyc8Lw/8QAGQEAAwEBAQAAAAAAAAAAAAAAAAECAwQF/8QAIhEBAQACAwACAQUAAAAAAAAAAAECEQMhMRJBEwQiI1Fh/9oADAMBAAIRAxEAPwDjLyMlQ1t+JqlKKgprOKyt23/9IeJx2vH3hlZVedDp9SPTvXUuNWtlxmFrLitrHNCeRPvL6g9DXDPY25+zcchkXSAPe8RsDFd1nCyqsiebWNWoNXNzTvbfi8cn9qPYW44N4kts5u+Gturru8PbPp8qxnmtZGjkQkfEvQjof8V+iELAFDh0O2lqwHth7DjQ1zwvDYyVRfh/t+Xaq4+b6yGXF9xzeeLTokjfUjfEOv8A1q6CCSd0jijd5G90L1o2x4ZdNL9nNrKySnScocKe9dH9lPZhOGwZC+Jd/E/PSPSrzzmiwxJ+Beyd3HEj3sqxA76F3b861Vtw20skEixh25an3NMRw+ZSNXmztmpT2coAWsPli11QSJ4r5byr2o5QqJ5a+t7GQE6jvVVyrRy6FbW2MkdqLnB8a9ZqgTQ7PKdtNF/Z20K7bHHKl+SD40O53qtjVskb9N6itvIxGVYetV8oWlYrwijPsBGnz86qltWXKq2y7tT+cGqEeqW9Kv0BiQTjHWothPd596qUKMNjcgepr1UZ2CopZjyxV1rbSXbkL7q82NHPLDax+Baplvjc96zzy0cm3wS3sog02Gn/AA9KXXfEpZCVAYL2WoyaSxklBLHlg1S2FO74J5CRf5rL1QRnSWYAYyTvRjxb/SoBFafxNBVl79auzW2MTWMm9muGynZpYfkQ1L5vY+RfNb3SP/a3lNPkevmkZK0mVZ3GVmIOCcSsruKUW3iqrDzIQetdx4AjScIi8XUrr8Ljceh5VzhLhvxV0X2XuFl4f5pw+R06elRyXcPGaFzW4/F/ihMMux5Uwm0n3PNVMVqzPqNcvbeUB/wwiTVAPuzuVP8AFNbe3S3VQ3NhRaQJFHgf9qDnfJ0vz6VVtTBMUWt8dqG4vHiEnsKZWafcig+NJ4kRHpSKelXDC0kDSavdqiEeJPcOzan5BfSieDjwrN9Q3ckY70sZ3TiFyy/CMVLT7EJD4lsVB0yDH5Zr7ik7xxxW6bs/M1aVkWTxQvkC71VFi64wrye6pogtG2dn4VuDLzO9U3U/hsigbAkfOnNwoZBjkBgVmb8aLpcDO1XrpG90YtxGwJB36elUmUhNWPe2OOtV29rKuTjc75r2RnUKCvmJzRobVsviRJ5QN+lRWzeRhqbCDmaslKjGptznAqAl8YaC3lHw1XysGnz3iiPw7ZdES9ubH1qlIy+c8jvUpnQARx5wOZxXiXAXYkfSl9nOkpLdSOT/AEoC4RCCDj60ydwy+Vnz0IpXfK6hScEZxmqkTajCCqkNzqZqKn9q+Na/SazeKg5qZNVvVkiGatz7GSotueXPqfWsJmn3swzrc6Q2lTzGedTl4HStIf3RpqYXTyqNq58JRg0RGVAy9c1i9vsak/upddj79aa+PCBuyj60JPAkpEkZB67Ur4J6Ptl+6X5Ut4wxEJVfeo1JdEQDc6FnGtzQZOQ8KqPgUfqaB8FvHnkb3WxTm9VVjcd6GhiBXGxB60lbexs0cLROc5yR+VVwIv2mJl95hv8APFSnHhxtk75A+lDiVIpNaNsGxijRbPGkzGSeQGKzd/ra/wBR90NhR6Uwmv8AfQDsRQgKyXomY5QDYd60+kTo3tVCxqT0FB3Rtw5IOWPM1J5GcBVXydehoaW08c5xhR8IzT8hTuhJZI3kYgE5GNhURk6sLhyMZ6Va1qYE+52b0oTwpXY6mZj6bYpaVHpYooD4z8qodrZW+9U5PUbVb4e/mYrjvVNxc+ExUQ+LkdqZrYin/Lmz2B6VGbEoMbDBHfrSyWVw2oaEHUE4xX0V2cHWxJHumriKKJwdPavs0G82Tmo+NWkInNQJr4mvDTDxE1c62fstwshPHfryNZrhdmLq5WIZPyro8NqLOyWOIkP2PKseWqxgxJ9PXlWV9p/aSezVo7YNq7g0zkM58hQhqx/tpIsEUj/8wDGOxrGdtPJusnxLj3FJ59p31fh1GpcO9sOL8Ml1CVwvVdRI/I1Pg1h9rsGvHguDGpOZ1jYrnsWxilF9NE7MIV8qnGe9d0wx1qxx3kyt6d39jfaa19prDS/kulXzL39abzI0EoD+6dga5L/S9mt+K2z506/KR9a7VeokkYNceeOq3wuyK8XWmo9DihyumPy8hTCaILCTkH50uz5D86mLL7y45Jnb96WJM0855+GpxtV91bzzyBVG+NjTjh/CEtYVMgy7bmqIkmLQQtPcsI49OcVjOM+3ksWYeFrpIOPFbfPypx/VG+aK2gtYjpMmM47DNYDgnDv+IXiwvIkQ/E3I9hXRx4SsM87FsntNxqVy7Xsxz64ptwn254xbSqJX8VR0ND8VsraxBiZ4zINmVOhpCX0SZQcjWmWOP9Ixzydr4N7SWnF4F1MFkPNexoy4GT5XKjvXLbQtFLa3cBwJDocDlW7s7id4gCdSnmG/g1zWadE7ETAZ80gJHLI50LLqZSAB9KLSEsw0qx9M1cgK5DxY+YqdrvjOzwIU1GEAjck86Bim1FiBheQFaa7s4yjMSc42FZaQeFIw9a0xqclxkqPiVRr3r3Wa0SHNVk1ZIagVxzUfnQGs9hrF7i7MwBAHXFdD8FV/1FBpB7C2rRcMWVoymqtKw11zZ3dXioaCKYEKFDY71yr2tiM015ZyDTKBlNXWuptb6W1IxFKOL8DtuLLi8iDuPdkBKsPqKWN0d804bZ8Yv+H2klitxMlvqJeDV5ST1xSxsvIdPU12S8/pnwe7GTNdxSfiWTP6EEVZwv8Ap1wPh0olkSW7kHLx38o+gwK6vzY6c34cgH9PeFMdFyy4SNcKe5roF5dskQGaHjWOBAsahY0GAFGMVm+LcYiM7IWbynG1clu668MOtGV5xAldJNLHu2PutQa3MDAv4mR6ml93dxa/u3Ukb7GnIq4tLYz5Pm502kutSqM7AVkOFXRan8TF4xtTQw/9T7Z5msrgZwjFT9f+1Zfg3E5OA36XsUEczaDHolGpcEYP711m/wCHxX8RjuEEkbfCelY/jXsBNpY8NuFkB3EUqlSp9CMg1rhnrphyYsFd3DTXc8rgDxDtgdhgftQw87BR1PSntx7IcfgfB4f4g6GORT+5FNfZ/wBi+KzTJPcwQwL/AOtKP2Ga3yzmtsphVvDuHmSLh9t8bS62/wDaK6jZ8FjS1TxNj1FKuA8Kt+FEyM4urlvi04VfkKcvfszbqTkbjtXLcnTJqq3tN9KvoA5EUuuw0GTrkfHw5GDTJJWkyNWkHpihbiQxxnIDfSlDtI7i6LozDIz0xWYvSRPk7Zp7eXJy3LV+ECkN+2vDdjV4+le4rDVYG250Om9WgbVvEqpuvpzr6zQSzoowRq6/OiGIclfBQ6lPp617wdUlv4VjSRCXGQGBHP1FTfA7BwWNYOGwxqR7g3oxiMbHAoS2iMVvGAdgozUZJzyOw71y2tIIMkecZ37VOOHUMkVRZ4LZCAt+In/rTA6tHmjI+RFIWqDCKg9uKmZSQdCkb/EKtg1H3sH60hsru4Ctu+AQSCK5hcJNBfyRXKYUk4b1rsdzAHhI5+lYf2p4cWiLwx5ZN8EVcxVxcmqy0ca+E5BO1Zebi0T3MiKCCCQhHxVoreO7ZJIhF5m2x13pj7PexFurmW6T71jnuBVYf66ObOYzp77LQSTqruDuOWK1sNvgYY47Z60bY8OgsYwURdhjNWyxFtBwBRY4/lsH4QAyf1r4e8BICdXTrX00ghU+KQAD1OMVXNOoQDOjPIZ/moPaVzCFVWRHUgbjScUEuSgMcen1zR6lTEc5JxnGaAaVY8upJCn4k2o0NrBpCkqxA5HrVYeRidLFgOpGMVUbqOaJnhGok4JC4oRrjwidRCr181MbGanEnnYrQ95eRpsJct0FBXPEF0ai6sO+obfSl0t4X/02H5VUhXsFe3LLdNk51ctqDuBmAsOeav4gxkZWyNue1Uy7QE+lVAGjNXA7UNE2wq8HatokcZJDks/DlK9DBG37IaL4bfQW1wjG7iLscjwbJFI374WgZba1hfVPdEkc47dNefTJIH5Zq+xu7T7Qq21gjODgGcmQ/pgfpUUOo204a2Ry5OpeenH81U0xlOlCV+QzVNrceJaR5IWTABUAD9qKtrY51Cue+ridtE0fmkZpD3J/imMTL/4ZHywKrVX6sPyqY0RjJOaqYptRmeRj5QR9attUKrknOaDllLsSnL0qpZWjOdZx2p6gNpp0iTzYrN8TnR8jA3NW3V2HJwSWxuKQ394iAljhepaqgxnby2jQXcjbflWgspY0IBCgYrC2PtDw9b0xNOp1DHoD860UF3GQpVshuRzzqtL5I0koDAEEN2Gaomi0R+JjJI93VQsdw6WrPzJ2FSe+MdosroWYnYDpU6Zg7m6guohDdhlkYbKiEEY9aBvLH7SYUhmKNHvknn896snvbO5n1tC+terLih5bBWuHuraRjIT7ucg/Op0NoR3M9rcGC41oVHPv6ioXV1ufDnjAO+WOf4/mq24nLI/g8R4blRsJEOR+vKlXEVt5JtMN14T9I5sqaJBsX9qkikzBJbSE95wCPln+KtaQzx6Z7UhfxqCf1zSU2kxUho1kHePDftSu6WeCUPC0kDA+8jEA/kaNKNrqCMsFEh5+6QBQ0iND8qna8XmKCO6mEv8A8qBv150S93aSbSWwz+JHKn+RTLsmuNTAnOPSh2lYwEE7dKePDZ3SkRzNE3TxF2/MUnvrO4t4SWTUh5Om4NOei0NCaJU7UHC2aJVtudbRMM5TbJssRnYdZNlH0G5/MVQJ726kWKHxcdY7YaR8jp5/WjTbIz4SP7Q537IvzPX/APb1XPNEn3c8jXA/8vAfDiHzI979fnUG1/skgSMRGWMFfgRgxz642/OthFoCbZP6Vzngk91Gya0WCHmtvAuCR69fqa2sMhZNesH+1cH9eVZWap+mvi55DNReMscuduwqq3nUbcqOVdYzQRfMw06Yxv6UtvJGjYZONqdz2+kalG9J76F3PemcpDf8WWHaNCzelZXjDXnEmCFtCc8CnfFAEuWXGMUHFgknFXi7Zwaw+THXHAZUkJj1a87etbXg9nPw6wXxGLOByJoqzt0edNYU6ctRvECvm7Z2Aq3NMN3SkcdQBInBjAI36Uxi4gkoDJhRjmeo71lLxA0Um2+DS3gfHmilMFy2EHlFQ15uGYarbAJcK4D422350DJDeWTj7LLhTvhutD/b7WWIiF11Ic5zVp4gyhY7ghkdfKwPOlpyrxxGJwFnh8re8wHI+tKuKqkmDEwI7HtRzyQucxOpnC7o2BrH+aUkCcutr/vt3/8ArSCEU6rhJUyg7nB+lGNH4yaYpvFUjZLhQfyNAfZgzllJGPgbmDV8LkArjl0o2Zff2qQn721eMfjjOcfQ/wCaoi0sulZFdemTpYU9NyAulwG9CM0ruY7WVzofwn6BtwaVglWRo0YySNu+1Lb64eKbMDlR6Hn9KkZbm2yk+TGPXINLZvvZS8Dl16jqtXjCtFRtDcbyqIpfxryP06VZ4LDYxl/7kOxoGJjkUakjhdjitdCHR8e7+6iGIuRUbKB696k62fC86yZbn8I+H5dvnUzeJGWhtjpx8Q6Up8IyTOp82+WYnb61mfq2S9u7uTQg0oW2iTbV8+/1rV+zXFks5BBdS+IzHTgbgfXrWTi+OK15fHM22B6dhRVkdEyQ23Nzh5j7x36dhSsGnUQ0TsJEOeopjZSFtjyrP2gMMMcW+MDpTO2n08jWG9VVnRvMAVwKDa2DHcVOObVzNXa9SNtvg4rRGu3LeKvru5WHLWd6EjbFX8SQpPIDy1H96DVqeNe1ZvDRpZS/eE56VddSal350rhm0NVj3Grmavblxw/colbJYdxWMv4XTiM4TONe3qK1srebNJ7uENds9KVf6qfx7D8NSVJwWY6ScHfv1pnbI8kTWcrkMDiMn4TUbVAMHTR8kP3moDDHB+WRTeYoKOwSU+SSM6WPqKNCC4TxF2uFGcj4qkUEiawOezChRMYm1KcHNT0Fxc3I0zNplGyy9G+dQaSS1fRcRg4GxHWh7qTxl8RCBj31/mq4b5TH4N0TJF0PVflSoi24lMqFoSNudANkjMhBoi6jaHE0Lgxn3XHX0NATzKxw+Ec9RyNKmpm4gYcoQGjPMEUN4cbZmtS2Oq9q8vYXMWQNQ7ihYGkhYaMitcE0ygw5DdetFqm3KhoSknnUaX6r3opWwN60EFQqWm2PPnUpfvXaKHyRg5Zu47n/ABUrjC4WI753I+I1VI2gtCnQ6mbvWbRCaRWTwkBSNTsM+96mmXALUTcSh05AB5lqXwAE4Iz/ALa2HszZW/mkBJHTPQ1GV1DaLRoQajkDlXgnVeQNerqdsRqMVetqW98flXOapbwj3VJq1eJFfeUirkt1jHu5qQhU81FVKnW2T4pbCaR2VTg70sXhdzKcRRs2ewroRskl/wBVQF6V6FhhGlQB8qvbpn6nKY6YmH2ZuSQZZFQY5Dc1NvZXtO9aq4nVc6RQL32nmuKPkyvNlWS4l7PXNujPA/i4BOnrWYD6pTr2IO4NdInvVaNgdiaw/GbHN8ZbdS+v3sDkaqUXmuWPxqmOQLsKvkuPLnO5UH+KWzJLAjNIrLjag3vV8u593FUwPIbz7zST5TtQVxdlHdWG+aXLcoWDauW/OiLyaE6JjyZcGpEWR3LCUMBleoqy6gEbeICPCbcZ6Glv2pgdMQwDR0CS3cDQyHysdvSg7VScQNsdONUb+8p5V5dWrMqT2xLxN06rVi8KUbsx27UyskFt7uCp5jvTAWytmVR4mMHoaXcUtNEmYyEB71oJY9Q12/LqO1J+J27SR63JyKMbqlYWxHw2Hmye9NI3VkBPOlUKnkeXSjEYhcVsUO3TQfFO+NlFDKpJIPM8zRU5yNI5cqEI1PzxUNIOtbWOXA0Ef3b4/et1wazW2tkAIJY53rG8J+9uYxLlgeSMf4rolqqsANAGBtiss6YuMBRnAzUxUAamAcGsg8JqyMDm1B6zqA61cZPNpFMlkrlzheVUtGDzzmrlGK+I3pWgG8Gc5pfcQ6TkjlTmTCjc0tu8HOD0oBTclNLbdKQXN0IpCAaa8Qcrn5VkOKXBEx3q8aWhV3KLhGj6tWbuLFkYeU898nnTK3nDSZqV4Vcc6vZaJFsiW5Yo8WStAAc5XpU0wNudEoMocdqJRoKkaoANG9G2+AQeQqsBOp3HSpLJ0xsaSpiLkOPMOvSq8O2+DU4HUAg+Y9gM0TGMjaNh6mgKrctGd9886+v7cTRNoG2KvJIG4qMbgErnOaImsiyPG5GORq9G8u9WcXTwrjUORO9CK+1a40mkY5jyOdD8mz0qzWNOM1U2aSzXgIX7dGEbDNv6D+T+ddHsiPCB6mufey8Z+1b5JxyxsK6FbDGlR0rLP04IqanIIFRbC+9UC2GyORrM1UY+9JNWRDVIWPKogYkapQsB1oSI6VW7aRvXrthTmld+08qlI3KjHOgI8S4tbWoxJIoPbrQDX8cyawdsZFLf+AKbk3FzcSSOfxcqJaFI0CqvI0aMDeymVj4a79+1ZnitjIrmR8HPatY+ldXLONqW36eJG2odDV4kzNtbnerXjK7GibCMvNIuNhyr3iTrCAg941RbARwhG1E0ShVAcnANDBpHHl3qaW7c2J+VKKiODI5EeCO5ohLU6cs+KnDbhdwd6uNm8/8AqOVX0pm8SSO3YGNcn96vEtzIRpVVU96mlvDEoClXPqd6IiQackAdqCoY20sg87kA8wK+is0jOScnPWiJmCKclR/uoQyas6X+tIlPGLGKZNauEccs8qQGzuMnHhsO+oVoZDO8TebbHPn+lZ1rl1YjDHB6nFXjUWP/2Q=="
+                            alt="">
+                    </div>
+                    <label for="" class="text-light MS libre-baskerville-regular">Profile</label>
+                </div>
+
+                <div class="col-2"><button class=" btn text-bg-secondary mt-4"><a href="exChange.html" class="navbar-brand">Exchange</a></button></div>
+
+                <div class="col-5  text-end">
+                    <button type="submit" class="btn border mt-4 bg-light shadow" onclick="logout()">Logout<i class="bi bi-box-arrow-right"></i></button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="container text-center mt-5 libre-baskerville-regular">
+        <h2 class="text-secondary ">
+            Personal Budget Tracker
+        </h2>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center text-center">
+
+            <div class="col-12  col-md-4">
+                <div class="card rounded rounded-3 shadow">
+                    <h5 class="mt-2">Total Income</h5>
+                    <p class="text-success display-6"> <span id="totalIncome">$0.00</span> </p>
+                </div>
+            </div>
+
+            <div class="col-12  col-md-4">
+                <div class="card rounded rounded-3 shadow">
+                    <h5 class="mt-2">Total Expense</h5>
+                    <p class="text-danger display-6"> <span id="totalExpense">$0.00</span> </p>
+                </div>
+            </div>
+
+            <div class=" col-12  col-md-4 ">
+                <div class="card rounded rounded-3 shadow">
+                    <h5 class="mt-2">Balance</h5>
+                    <p class="text-primary display-6"> <span id="balance">$0.00</span> </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="container mt-4">
+        <div class="card px-3">
+
+            <div class="mt-3">
+                <h4>Add New Entry</h4>
+            </div>
+            <form action="" class="row mb-5" id="budgetForm">
+                <!-- Add New Entry -->
+                <div class=" col-md-12  col-lg-4 my-3">
+                    <input type="text" class="form-control " placeholder="Description" id="Description" required>
+                </div>
+
+                <div class="col-md-12  col-lg-3 my-3">
+                    <input type="number" class="form-control" placeholder="Amount" id="Amount" step="0.01" min="0" required>
+                </div>
+
+                <div class="col-md-12  col-lg-3 my-3 ">
+                    <select name="" id="type" class="form-select">
+                        <option value="income">Income</option>
+                        <option value="expense">Expence</option>
+                    </select>
+                </div>
+
+                <div class="col-md-12 col-lg-2">
+                    <button type="submit" class="btn btn-cl  border form-control ">Add Entry</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <div class="card p-4">
+            <div class="mt-3">
+                <h4>Entries</h4>
+            </div>
+            <table class="mb-5 table table-striped text-center">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="trEntries">
+
+                    <tr class="my">
+                        <td colspan="5" class="text-center text-muted">No entries yet.</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+
+<script>
+    if(sessionStorage.getItem('isLoginSuccess') != 'true'){
+        window.location.href = 'index.html'
+    }
+
+    function logout(){
+        sessionStorage.clear()
+        window.location.href = 'index.html'
+    }
+</script>
+    <script src="dashboard.js"></script>
+</body>
+
+</html>
